@@ -1,0 +1,1 @@
+<template><div class="page-container"><van-empty description="直播间建设中" /></div></template>
