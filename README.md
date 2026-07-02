@@ -1,2 +1,2 @@
 # fitnessUP
-UP is a which convinient for each other to comunication and study
+UP is a APP which convinient for each other to comunication and study
