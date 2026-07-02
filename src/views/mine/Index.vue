@@ -6,8 +6,8 @@
         <van-icon name="user-circle-o" size="60" color="#ddd" />
       </div>
       <div class="profile-info">
-        <div class="profile-name">{{ userStore.userInfo.nickname || '未登录' }}</div>
-        <div class="profile-bio">{{ userStore.userInfo.bio || '自律给我自由' }}</div>
+        <div class="profile-name">{{ userStore.userInfo?.nickname || '未登录' }}</div>
+        <div class="profile-bio">{{ userStore.userInfo?.bio || '自律给我自由' }}</div>
       </div>
       <van-icon name="arrow" color="#ccc" />
     </div>
@@ -15,8 +15,8 @@
     <!-- 成长等级 -->
     <div class="level-card card">
       <div class="level-header">
-        <span>成长等级 Lv.{{ userStore.userInfo.level || 1 }}</span>
-        <span class="level-exp">{{ userStore.userInfo.exp || 0 }}/1000</span>
+        <span>成长等级 Lv.{{ userStore.userInfo?.level || 1 }}</span>
+        <span class="level-exp">{{ userStore.userInfo?.exp || 0 }}/1000</span>
       </div>
       <van-progress :percentage="23" stroke-color="#FF6B35" track-color="#f5f5f5" />
       <div class="achievements">
