@@ -94,6 +94,12 @@ const routes = [
     name: 'Login',
     component: () => import('@/views/login/Index.vue'),
     meta: { title: '登录', hideTabBar: true }
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('@/views/register/Index.vue'),
+    meta: { title: '注册', hideTabBar: true }
   }
 ]
 

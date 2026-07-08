@@ -1,13 +1,13 @@
 <template>
   <div class="mine-page page-container">
     <!-- 个人信息卡片 -->
-    <div class="profile-card">
+    <div class="profile-card" @click="handleProfileClick">
       <div class="profile-avatar">
         <van-icon name="user-circle-o" size="60" color="#ddd" />
       </div>
       <div class="profile-info">
-        <div class="profile-name">{{ userStore.userInfo?.nickname || '未登录' }}</div>
-        <div class="profile-bio">{{ userStore.userInfo?.bio || '自律给我自由' }}</div>
+        <div class="profile-name">{{ userStore.isLogin ? (userStore.userInfo?.nickname || '健身达人') : '未登录' }}</div>
+        <div class="profile-bio">{{ userStore.isLogin ? (userStore.userInfo?.bio || '自律给我自由') : '点击登录，开启健身之旅' }}</div>
       </div>
       <van-icon name="arrow" color="#ccc" />
     </div>
@@ -59,11 +59,19 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { mockAchievements } from '@/mock/user'
 
+const router = useRouter()
 const userStore = useUserStore()
 const achievements = ref(mockAchievements)
+
+function handleProfileClick() {
+  if (!userStore.isLogin) {
+    router.push('/login')
+  }
+}
 
 function formatMin(min) {
   if (min >= 60) return Math.floor(min / 60) + 'h'
@@ -76,7 +84,7 @@ function formatMin(min) {
 .profile-card {
   display: flex; align-items: center; gap: 14px;
   padding: 24px 16px; background: linear-gradient(135deg, #FF6B35, #FF8C5A);
-  color: #fff;
+  color: #fff; cursor: pointer;
 }
 .profile-avatar { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.3); display: flex; align-items: center; justify-content: center; }
 .profile-info { flex: 1; }
