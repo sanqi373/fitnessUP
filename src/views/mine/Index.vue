@@ -68,7 +68,9 @@ const userStore = useUserStore()
 const achievements = ref(mockAchievements)
 
 function handleProfileClick() {
-  if (!userStore.isLogin) {
+  if (userStore.isLogin) {
+    router.push('/mine/profile')
+  } else {
     router.push('/login')
   }
 }
