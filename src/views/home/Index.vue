@@ -163,7 +163,7 @@ const greeting = computed(() => {
 
 function handleAvatarClick() {
   if (userStore.isLogin) {
-    router.push('/mine')
+    router.push('/mine/profile')
   } else {
     router.push('/login')
   }

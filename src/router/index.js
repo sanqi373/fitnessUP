@@ -90,6 +90,12 @@ const routes = [
     meta: { title: '设置', hideTabBar: true }
   },
   {
+    path: '/mine/profile',
+    name: 'Profile',
+    component: () => import('@/views/mine/Profile.vue'),
+    meta: { title: '个人信息', hideTabBar: true }
+  },
+  {
     path: '/login',
     name: 'Login',
     component: () => import('@/views/login/Index.vue'),
