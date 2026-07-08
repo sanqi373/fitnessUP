@@ -2,12 +2,12 @@
   <div class="home-page">
     <!-- 顶部 -->
     <div class="home-header">
-      <div class="home-header__greeting">
+      <div class="home-header__greeting" @click="handleAvatarClick">
         <div class="home-header__avatar">
-          <van-icon name="user-circle-o" size="40" color="#FF6B35" />
+          <van-icon name="user-circle-o" size="40" color="#fff" />
         </div>
         <div>
-          <div class="home-header__hi">{{ greeting }}</div>
+          <div class="home-header__hi">{{ userStore.isLogin ? (userStore.userInfo?.nickname || '已登录') : greeting }}</div>
           <div class="home-header__slogan">每一次训练都算数</div>
         </div>
       </div>
@@ -143,10 +143,12 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useUserStore } from '@/stores/user'
 import { getTrainPlans } from '@/api/train'
 import { getCourses } from '@/api/course'
 
+const router = useRouter()
 const userStore = useUserStore()
 
 const greeting = computed(() => {
@@ -158,6 +160,14 @@ const greeting = computed(() => {
   if (hour < 18) return '下午好'
   return '晚上好'
 })
+
+function handleAvatarClick() {
+  if (userStore.isLogin) {
+    router.push('/mine')
+  } else {
+    router.push('/login')
+  }
+}
 
 const trainPlans = ref([])
 const courses = ref([])
@@ -210,6 +220,7 @@ onMounted(async () => {
   align-items: center;
   gap: 12px;
   margin-bottom: 16px;
+  cursor: pointer;
 }
 .home-header__avatar {
   width: 44px;

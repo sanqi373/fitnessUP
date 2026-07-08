@@ -7,6 +7,7 @@ import { mockTrainPlans } from './train'
 import { mockCourses } from './course'
 import { mockPosts } from './community'
 import { mockDietRecommend } from './diet'
+import { dbRegister, dbLogin } from '@/utils/db'
 
 function delay(ms = 300) {
   return new Promise(resolve => setTimeout(resolve, ms + Math.random() * 200))
@@ -35,22 +36,44 @@ export function setupMock(axiosInstance) {
     const parsedData = data ? JSON.parse(data) : {}
 
     // ========== 用户模块 ==========
-    // 登录
-    if (url === '/auth/login' && method === 'post') {
-      await delay(500)
-      if (parsedData.phone && parsedData.password) {
-        return createResponse(config, success({ token: 'mock_token_' + Date.now(), userInfo: mockUser }))
-      }
-      return Promise.reject({
-        config,
-        response: createResponse(config, { code: 400, message: '手机号或密码错误' }, 400)
-      })
-    }
-
     // 注册
     if (url === '/auth/register' && method === 'post') {
       await delay(500)
-      return createResponse(config, success({ token: 'mock_token_' + Date.now(), userInfo: mockUser }))
+      const { phone, password } = parsedData
+      const result = dbRegister(phone, password)
+      if (!result.success) {
+        return Promise.reject({
+          config,
+          response: createResponse(config, { code: 400, message: result.message }, 400)
+        })
+      }
+      return createResponse(config, success({
+        token: 'mock_token_' + Date.now(),
+        userInfo: { ...mockUser, phone: phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2') }
+      }))
+    }
+
+    // 登录
+    if (url === '/auth/login' && method === 'post') {
+      await delay(500)
+      const { phone, password } = parsedData
+      if (!phone || !password) {
+        return Promise.reject({
+          config,
+          response: createResponse(config, { code: 400, message: '请输入手机号和密码' }, 400)
+        })
+      }
+      const result = dbLogin(phone, password)
+      if (!result.success) {
+        return Promise.reject({
+          config,
+          response: createResponse(config, { code: 400, message: result.message }, 400)
+        })
+      }
+      return createResponse(config, success({
+        token: 'mock_token_' + Date.now(),
+        userInfo: { ...mockUser, phone: phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2') }
+      }))
     }
 
     // 获取用户信息

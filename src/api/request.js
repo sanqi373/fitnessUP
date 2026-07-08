@@ -2,7 +2,7 @@ import axios from 'axios'
 import { showToast } from 'vant'
 
 const request = axios.create({
-  baseURL: '/api',
+  baseURL: 'http://localhost:3001',
   timeout: 15000,
   headers: { 'Content-Type': 'application/json' }
 })
@@ -42,9 +42,13 @@ request.interceptors.response.use(
     } else if (!error.response) {
       showToast('网络异常，请检查网络')
     } else {
-      const status = error.response.status
-      const msgMap = { 400: '请求参数错误', 403: '无权限访问', 404: '资源不存在', 500: '服务器错误' }
-      showToast(msgMap[status] || '请求失败')
+      const { status, data: resData } = error.response
+      if (resData?.message) {
+        showToast(resData.message)
+      } else {
+        const msgMap = { 400: '请求参数错误', 403: '无权限访问', 404: '资源不存在', 500: '服务器错误' }
+        showToast(msgMap[status] || '请求失败')
+      }
     }
     return Promise.reject(error)
   }

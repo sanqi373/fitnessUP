@@ -3,7 +3,7 @@ import { createPinia } from 'pinia'
 import router from './router'
 import App from './App.vue'
 import request from './api/request'
-import { setupMock } from './mock'
+// import { setupMock } from './mock'
 
 // Vant 组件手动注册
 import {
@@ -32,7 +32,7 @@ app.use(Swipe)
 app.use(SwipeItem)
 
 // 开发环境启用 Mock 数据（后端就绪后注释此行）
-setupMock(request)
+// setupMock(request)
 
 // 全局样式
 import './styles/global.css'
