@@ -1,6 +1,5 @@
 <template>
   <div class="page-container">
-    <van-nav-bar title="设置" left-text="返回" left-arrow @click-left="$router.back()" />
     <van-cell title="个人信息" is-link @click="$router.push('/mine/profile')" />
     <van-cell title="隐私设置" is-link />
     <van-cell title="通知管理" is-link />
@@ -10,11 +9,9 @@
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
 import { showConfirmDialog, showToast } from 'vant'
 import { useUserStore } from '@/stores/user'
 
-const router = useRouter()
 const userStore = useUserStore()
 
 function handleLogout() {
@@ -22,7 +19,6 @@ function handleLogout() {
     .then(() => {
       userStore.logout()
       showToast('已退出登录')
-      router.replace('/mine')
     })
     .catch(() => {})
 }

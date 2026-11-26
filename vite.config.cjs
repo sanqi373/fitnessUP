@@ -1,8 +1,8 @@
-const { defineConfig } = require('vite')
+const { defineConfig, loadEnv } = require('vite')
 const vue = require('@vitejs/plugin-vue')
 const path = require('path')
 
-module.exports = defineConfig({
+module.exports = defineConfig(({ mode }) => ({
   plugins: [vue()],
   resolve: {
     alias: {
@@ -14,9 +14,9 @@ module.exports = defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:8080',
+        target: process.env.FITNESS_API_TARGET || loadEnv(mode, __dirname, 'FITNESS_').FITNESS_API_TARGET || 'http://localhost:8080',
         changeOrigin: true
       }
     }
   }
-})
+}))

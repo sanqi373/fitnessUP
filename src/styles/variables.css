@@ -1,36 +1,32 @@
 :root {
-  /* 主色调 - 活力橙 */
-  --color-primary: #FF6B35;
-  --color-primary-light: #FF8C5A;
-  --color-primary-dark: #E55A2B;
-
-  /* 辅助色 */
-  --color-success: #07C160;
-  --color-warning: #FF976A;
-  --color-danger: #EE0A24;
-  --color-info: #1989FA;
-
-  /* 中性色 */
-  --color-bg: #F7F8FA;
-  --color-bg-white: #FFFFFF;
-  --color-text: #1A1A1A;
-  --color-text-secondary: #646566;
-  --color-text-light: #969799;
-  --color-border: #EBEDF0;
-  --color-divider: #F2F3F5;
-
-  /* 尺寸 */
-  --tab-bar-height: 50px;
+  --color-primary: #32c99a;
+  --color-primary-light: #84e6c5;
+  --color-primary-dark: #179975;
+  --color-primary-soft: #e4faf2;
+  --color-accent: #ff8f70;
+  --color-accent-soft: #fff0eb;
+  --color-cyan: #6bbde9;
+  --color-success: #25bd8f;
+  --color-warning: #f4b552;
+  --color-danger: #ee6a62;
+  --color-info: #5ea9df;
+  --color-bg: #f5faf8;
+  --color-bg-deep: #edf7f4;
+  --color-bg-white: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-raised: #f8fcfb;
+  --color-text: #20322f;
+  --color-text-secondary: #5f7771;
+  --color-text-light: #91a6a0;
+  --color-border: #e2efeb;
+  --color-divider: #edf4f2;
+  --tab-bar-height: 68px;
   --header-height: 46px;
-
-  /* 圆角 */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 10px;
+  --radius-md: 17px;
+  --radius-lg: 26px;
   --radius-round: 999px;
-
-  /* 阴影 */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 7px 20px rgba(42, 100, 84, 0.07);
+  --shadow-md: 0 16px 34px rgba(42, 100, 84, 0.11);
+  --shadow-lg: 0 22px 50px rgba(42, 100, 84, 0.16);
 }

@@ -53,6 +53,21 @@ public class Course {
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+    @Transient
+    private String title;
+
+    @Transient
+    private java.util.Map<String, String> coach;
+
+    @Transient
+    private String durationLabel;
+
+    @Transient
+    private Integer totalLessons;
+
+    @Transient
+    private String desc;
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
@@ -91,4 +106,17 @@ public class Course {
     public void setEndTime(LocalDateTime endTime) { this.endTime = endTime; }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public String getTitle() { return title != null ? title : name; }
+    public void setTitle(String title) { this.title = title; }
+    public java.util.Map<String, String> getCoach() {
+        if (coach == null) return java.util.Map.of("name", instructor == null ? "" : instructor, "avatar", "");
+        return coach;
+    }
+    public void setCoach(java.util.Map<String, String> coach) { this.coach = coach; }
+    public String getDurationLabel() { return durationLabel != null ? durationLabel : String.valueOf(duration); }
+    public void setDurationLabel(String durationLabel) { this.durationLabel = durationLabel; }
+    public Integer getTotalLessons() { return totalLessons != null ? totalLessons : duration; }
+    public void setTotalLessons(Integer totalLessons) { this.totalLessons = totalLessons; }
+    public String getDesc() { return desc != null ? desc : description; }
+    public void setDesc(String desc) { this.desc = desc; }
 }

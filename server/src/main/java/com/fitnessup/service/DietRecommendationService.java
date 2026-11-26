@@ -5,17 +5,21 @@ import com.fitnessup.repository.DietRecommendationRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DietRecommendationService {
+    private final DietRecommendationRepository repository;
 
-    private final DietRecommendationRepository dietRecommendationRepository;
-
-    public DietRecommendationService(DietRecommendationRepository dietRecommendationRepository) {
-        this.dietRecommendationRepository = dietRecommendationRepository;
+    public DietRecommendationService(DietRecommendationRepository repository) {
+        this.repository = repository;
     }
 
-    public List<DietRecommendation> getRecommendationsByUserId(Long userId) {
-        return dietRecommendationRepository.findByUserId(userId);
+    public List<DietRecommendation> getRecommendations(Long userId) {
+        return repository.findVisible(userId);
+    }
+
+    public Optional<DietRecommendation> getRecommendation(Long id, Long userId) {
+        return repository.findVisibleById(id, userId);
     }
 }

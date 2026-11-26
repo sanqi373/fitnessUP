@@ -39,7 +39,6 @@ public class JwtAuthFilter extends OncePerRequestFilter {
         String authHeader = request.getHeader("Authorization");
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String token = authHeader.substring(7);
-            log.debug("JwtAuthFilter - Token (first 20 chars): {}", token.substring(0, Math.min(token.length(), 20)));
 
             boolean valid = jwtUtil.validateToken(token);
             log.debug("JwtAuthFilter - validateToken result: {}", valid);

@@ -29,6 +29,12 @@ public class UserAchievement {
     @Column(nullable = false, columnDefinition = "boolean default false")
     private Boolean achieved;
 
+    @Transient
+    private String desc;
+
+    @Transient
+    private Boolean unlocked;
+
     @Column(name = "achieved_at")
     private LocalDateTime achievedAt;
 
@@ -49,6 +55,10 @@ public class UserAchievement {
     public void setProgress(Integer progress) { this.progress = progress; }
     public Boolean getAchieved() { return achieved; }
     public void setAchieved(Boolean achieved) { this.achieved = achieved; }
+    public String getDesc() { return desc != null ? desc : description; }
+    public void setDesc(String desc) { this.desc = desc; }
+    public Boolean getUnlocked() { return unlocked != null ? unlocked : achieved; }
+    public void setUnlocked(Boolean unlocked) { this.unlocked = unlocked; }
     public LocalDateTime getAchievedAt() { return achievedAt; }
     public void setAchievedAt(LocalDateTime achievedAt) { this.achievedAt = achievedAt; }
 }
