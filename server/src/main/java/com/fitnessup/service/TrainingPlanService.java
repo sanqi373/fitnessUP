@@ -16,12 +16,12 @@ public class TrainingPlanService {
         this.trainingPlanRepository = trainingPlanRepository;
     }
 
-    public List<TrainingPlan> getPlansByUserId(Long userId) {
-        return trainingPlanRepository.findByUserId(userId);
+    public List<TrainingPlan> getVisiblePlans(Long userId) {
+        return trainingPlanRepository.findVisible(userId);
     }
 
-    public Optional<TrainingPlan> getPlanById(Long id) {
-        return trainingPlanRepository.findById(id);
+    public Optional<TrainingPlan> getPlanById(Long id, Long userId) {
+        return trainingPlanRepository.findVisibleById(id, userId);
     }
 
     public TrainingPlan createPlan(TrainingPlan plan) {

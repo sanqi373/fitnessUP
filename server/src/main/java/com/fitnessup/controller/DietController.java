@@ -4,7 +4,7 @@ import com.fitnessup.common.ApiResult;
 import com.fitnessup.entity.DietRecommendation;
 import com.fitnessup.service.DietRecommendationService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,17 +12,21 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/diet")
 public class DietController {
+    private final DietRecommendationService service;
 
-    private final DietRecommendationService dietRecommendationService;
-
-    public DietController(DietRecommendationService dietRecommendationService) {
-        this.dietRecommendationService = dietRecommendationService;
+    public DietController(DietRecommendationService service) {
+        this.service = service;
     }
 
     @GetMapping("/recommend")
-    public ResponseEntity<ApiResult<?>> getRecommendations() {
-        Long userId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<DietRecommendation> recommendations = dietRecommendationService.getRecommendationsByUserId(userId);
-        return ResponseEntity.ok(ApiResult.success(recommendations));
+    public ApiResult<List<DietRecommendation>> getRecommendations(@AuthenticationPrincipal Long userId) {
+        return ApiResult.success(service.getRecommendations(userId));
+    }
+
+    @GetMapping("/recommend/{id}")
+    public ResponseEntity<ApiResult<?>> getRecommendation(@PathVariable Long id, @AuthenticationPrincipal Long userId) {
+        var recipe = service.getRecommendation(id, userId);
+        if (recipe.isEmpty()) return ResponseEntity.status(404).body(ApiResult.error(404, "食谱不存在"));
+        return ResponseEntity.ok(ApiResult.success(recipe.get()));
     }
 }

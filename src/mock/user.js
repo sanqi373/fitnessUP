@@ -6,8 +6,8 @@ export const mockUser = {
   nickname: '健身达人',
   avatar: '',
   phone: '138****8888',
-  level: 5,
-  exp: 230,
+  level: 1,
+  exp: 0,
   bio: '自律给我自由',
   stats: {
     totalTrainDays: 86,

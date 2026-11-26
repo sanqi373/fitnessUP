@@ -11,8 +11,8 @@ export function register(data) {
   return request.post('/auth/register', data)
 }
 
-export function getUserInfo() {
-  return request.get('/user/info')
+export function getUserInfo(config) {
+  return request.get('/user/info', config)
 }
 
 export function updateUserInfo(data) {
@@ -21,4 +21,12 @@ export function updateUserInfo(data) {
 
 export function getUserStats() {
   return request.get('/user/stats')
+}
+
+export function checkInToday() {
+  return request.put('/user/check-in')
+}
+
+export function getAchievements() {
+  return request.get('/user/achievements')
 }

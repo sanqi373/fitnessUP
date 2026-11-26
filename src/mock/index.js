@@ -4,7 +4,6 @@
  */
 import { mockUser, mockAchievements } from './user'
 import { mockTrainPlans } from './train'
-import { mockCourses } from './course'
 import { mockPosts } from './community'
 import { mockDietRecommend } from './diet'
 import { dbRegister, dbLogin } from '@/utils/db'
@@ -125,47 +124,6 @@ export function setupMock(axiosInstance) {
     if (url === '/train/finish' && method === 'post') {
       await delay()
       return createResponse(config, success({ calories: 320, duration: 45, expGained: 15 }))
-    }
-
-    // 训练历史
-    if (url === '/train/history' && method === 'get') {
-      await delay()
-      return createResponse(config, success({
-        list: [
-          { id: 1, planName: '上肢力量突破', date: '2026-06-30', duration: 45, calories: 350 },
-          { id: 2, planName: '核心燃脂 HIIT', date: '2026-06-29', duration: 30, calories: 400 },
-          { id: 3, planName: '下肢塑形计划', date: '2026-06-28', duration: 40, calories: 300 }
-        ],
-        total: 3
-      }))
-    }
-
-    // ========== 课程模块 ==========
-    // 课程列表
-    if (url === '/courses' && method === 'get') {
-      await delay()
-      return createResponse(config, success({ list: mockCourses, total: mockCourses.length }))
-    }
-
-    // 课程详情
-    if (url?.startsWith('/courses/') && !url.includes('comments') && method === 'get') {
-      const parts = url.split('/')
-      const id = parseInt(parts[parts.length - 1])
-      const course = mockCourses.find(c => c.id === id)
-      await delay()
-      return createResponse(config, success(course || null))
-    }
-
-    // 课程评论
-    if (url?.includes('/comments') && method === 'get') {
-      await delay()
-      return createResponse(config, success({
-        list: [
-          { id: 1, user: { name: '用户A' }, content: '课程很棒，讲解详细', time: '2026-06-30', likes: 12 },
-          { id: 2, user: { name: '用户B' }, content: '坚持了一周，效果明显', time: '2026-06-29', likes: 8 }
-        ],
-        total: 2
-      }))
     }
 
     // ========== 社区模块 ==========

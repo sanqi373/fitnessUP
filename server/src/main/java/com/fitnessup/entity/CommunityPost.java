@@ -29,6 +29,15 @@ public class CommunityPost {
     @Column(name = "create_time", nullable = false, updatable = false)
     private LocalDateTime createTime;
 
+    @Transient
+    private java.util.Map<String, String> user;
+
+    @Transient
+    private String time;
+
+    @Transient
+    private Boolean liked;
+
     @PrePersist
     protected void onCreate() {
         this.createTime = LocalDateTime.now();
@@ -51,4 +60,12 @@ public class CommunityPost {
     public void setComments(Integer comments) { this.comments = comments; }
     public LocalDateTime getCreateTime() { return createTime; }
     public void setCreateTime(LocalDateTime createTime) { this.createTime = createTime; }
+    public java.util.Map<String, String> getUser() {
+        return user == null ? java.util.Map.of("name", "健身达人", "avatar", "") : user;
+    }
+    public void setUser(java.util.Map<String, String> user) { this.user = user; }
+    public String getTime() { return time != null ? time : (createTime == null ? "" : createTime.toString()); }
+    public void setTime(String time) { this.time = time; }
+    public Boolean getLiked() { return liked == null ? Boolean.FALSE : liked; }
+    public void setLiked(Boolean liked) { this.liked = liked; }
 }

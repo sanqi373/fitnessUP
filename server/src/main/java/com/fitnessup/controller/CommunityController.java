@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/community")
@@ -21,7 +22,7 @@ public class CommunityController {
     @GetMapping("/posts")
     public ResponseEntity<ApiResult<?>> getPosts() {
         List<CommunityPost> posts = communityPostService.getAllPosts();
-        return ResponseEntity.ok(ApiResult.success(posts));
+        return ResponseEntity.ok(ApiResult.success(Map.of("list", posts, "total", posts.size())));
     }
 
     @PostMapping("/posts")

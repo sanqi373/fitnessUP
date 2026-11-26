@@ -21,7 +21,8 @@ public class AchievementController {
 
     @GetMapping("/achievements")
     public ResponseEntity<ApiResult<?>> getAchievements() {
-        Long userId = (Long) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Long userId = principal instanceof Long id ? id : 0L;
         List<UserAchievement> achievements = userAchievementService.getAchievementsByUserId(userId);
         return ResponseEntity.ok(ApiResult.success(achievements));
     }

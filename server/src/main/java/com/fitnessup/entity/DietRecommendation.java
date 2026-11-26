@@ -1,6 +1,7 @@
 package com.fitnessup.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.time.LocalDate;
 
 @Entity
@@ -41,6 +42,16 @@ public class DietRecommendation {
     @Column(name = "recommended_at", nullable = false)
     private LocalDate recommendedAt;
 
+    @Transient
+    private String type;
+
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private boolean catalogItem;
+
+    @JsonIgnore
+    public boolean isCatalogItem() { return catalogItem; }
+    public void setCatalogItem(boolean catalogItem) { this.catalogItem = catalogItem; }
+
     public DietRecommendation() {}
 
     // Getters and Setters
@@ -66,4 +77,6 @@ public class DietRecommendation {
     public void setImage(String image) { this.image = image; }
     public LocalDate getRecommendedAt() { return recommendedAt; }
     public void setRecommendedAt(LocalDate recommendedAt) { this.recommendedAt = recommendedAt; }
+    public String getType() { return type != null ? type : mealType; }
+    public void setType(String type) { this.type = type; }
 }

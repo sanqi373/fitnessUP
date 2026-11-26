@@ -1,0 +1,192 @@
+[
+  {
+    "name": "上肢力量突破", "cover": "/training/upper-body.webp", "type": "strength", "difficulty": "中级", "duration": 45, "calories": 350,
+    "description": "针对胸、背、肩、手臂的综合力量训练",
+    "exercises": [
+      {"name": "俯卧撑", "sets": 4, "reps": 15, "rest": 60}
+    ]
+  },
+  {
+    "name": "核心燃脂 HIIT", "cover": "/training/core-hiit.webp", "type": "hiit", "difficulty": "高级", "duration": 30, "calories": 400,
+    "description": "高强度间歇训练，快速燃脂塑形",
+    "exercises": [
+      {"name": "开合跳", "sets": 4, "reps": 40, "rest": 30}
+    ]
+  },
+  {
+    "name": "下肢塑形计划", "cover": "/training/lower-body.webp", "type": "strength", "difficulty": "初级", "duration": 40, "calories": 300,
+    "description": "深蹲、箭步蹲等下肢训练",
+    "exercises": [
+      {"name": "自重深蹲", "sets": 4, "reps": 20, "rest": 60}
+    ]
+  },
+  {
+    "name": "晨间瑜伽拉伸", "cover": "/training/morning-yoga.webp", "type": "yoga", "difficulty": "初级", "duration": 20, "calories": 120,
+    "description": "唤醒身体的清晨瑜伽序列",
+    "exercises": [
+      {"name": "山式站立", "duration": 60}
+    ]
+  },
+  {
+    "name": "5公里跑步计划", "cover": "/training/distance-run.webp", "type": "cardio", "difficulty": "中级", "duration": 35, "calories": 380,
+    "description": "从热身到冲刺的完整跑步训练",
+    "exercises": [
+      {"name": "匀速跑", "duration": 1200}
+    ]
+  },
+  {
+    "name": "哑铃推拉交替", "cover": "/training/dumbbell.webp", "type": "strength", "difficulty": "中级", "duration": 24, "calories": 145,
+    "description": "用一对哑铃交替训练胸背，换项时留足休息时间。",
+    "exercises": [
+      {"name": "肩臂绕环与徒手推举", "duration": 180},
+      {"name": "哑铃地板卧推", "sets": 3, "reps": 12, "rest": 60},
+      {"name": "俯身哑铃划船", "sets": 3, "reps": 12, "rest": 60},
+      {"name": "哑铃锤式弯举", "sets": 3, "reps": 10, "rest": 45},
+      {"name": "上肢舒展", "duration": 120}
+    ]
+  },
+  {
+    "name": "臀腿单侧控制", "cover": "/training/single-leg.webp", "type": "strength", "difficulty": "中级", "duration": 22, "calories": 130,
+    "description": "用椅背辅助平衡，左右腿依次练习支撑和下蹲。",
+    "exercises": [
+      {"name": "原地踏步热身", "duration": 180},
+      {"name": "扶椅分腿蹲（每侧）", "sets": 3, "reps": 10, "rest": 45},
+      {"name": "单腿臀桥（每侧）", "sets": 3, "reps": 8, "rest": 45},
+      {"name": "扶椅单腿提踵（每侧）", "sets": 2, "reps": 12, "rest": 30},
+      {"name": "臀腿拉伸", "duration": 180}
+    ]
+  },
+  {
+    "name": "弹力带背部训练", "cover": "/training/resistance-band.webp", "type": "strength", "difficulty": "初级", "duration": 18, "calories": 90,
+    "description": "从拉开弹力带到坐姿划船，练习在拉伸和回程中控制肩胛。",
+    "exercises": [
+      {"name": "肩胛前伸后收热身", "duration": 120},
+      {"name": "站姿弹力带水平拉开", "sets": 3, "reps": 12, "rest": 45},
+      {"name": "坐姿弹力带划船", "sets": 3, "reps": 12, "rest": 45},
+      {"name": "弹力带肩外旋", "sets": 2, "reps": 10, "rest": 30},
+      {"name": "背部放松", "duration": 120}
+    ]
+  },
+  {
+    "name": "无跳跃间歇", "cover": "/training/low-impact.webp", "type": "hiit", "difficulty": "初级", "duration": 18, "calories": 105,
+    "description": "用侧步和交替提膝提高节奏，适合需要安静训练的空间。",
+    "exercises": [
+      {"name": "原地慢踏步", "duration": 180},
+      {"name": "左右点步摆臂", "sets": 6, "duration": 40, "rest": 20},
+      {"name": "交替提膝", "sets": 6, "duration": 40, "rest": 20},
+      {"name": "慢走放松", "duration": 180}
+    ]
+  },
+  {
+    "name": "拳击步伐间歇", "cover": "/training/boxing.webp", "type": "hiit", "difficulty": "中级", "duration": 20, "calories": 160,
+    "description": "用前后滑步配合直拳，工作段加快节奏，间歇时慢踏步。",
+    "exercises": [
+      {"name": "肩臂与步伐热身", "duration": 240},
+      {"name": "前后滑步", "sets": 6, "duration": 40, "rest": 20},
+      {"name": "原地交替直拳", "sets": 6, "duration": 40, "rest": 20},
+      {"name": "慢踏步与肩臂舒展", "duration": 240}
+    ]
+  },
+  {
+    "name": "跳绳节奏间歇", "cover": "/training/jump-rope.webp", "type": "hiit", "difficulty": "中级", "duration": 16, "calories": 130,
+    "description": "交替练习双脚小跳和换脚跳，控制跳跃高度。",
+    "exercises": [
+      {"name": "脚踝活动与原地踏步", "duration": 180},
+      {"name": "双脚小跳", "sets": 5, "duration": 30, "rest": 30},
+      {"name": "交替换脚跳", "sets": 5, "duration": 30, "rest": 30},
+      {"name": "步行与小腿拉伸", "duration": 180}
+    ]
+  },
+  {
+    "name": "全身短间歇", "cover": "/training/full-body.webp", "type": "hiit", "difficulty": "高级", "duration": 22, "calories": 180,
+    "description": "在站姿和支撑姿势之间分段练习，保持各组动作节奏一致。",
+    "exercises": [
+      {"name": "动态热身", "duration": 240},
+      {"name": "滑冰步", "sets": 6, "duration": 40, "rest": 20},
+      {"name": "高位支撑交替触肩", "sets": 6, "duration": 40, "rest": 20},
+      {"name": "深蹲提踵", "sets": 3, "duration": 40, "rest": 20},
+      {"name": "步行放松", "duration": 180}
+    ]
+  },
+  {
+    "name": "桌边肩颈瑜伽", "cover": "/training/seated-stretch.webp", "type": "yoga", "difficulty": "初级", "duration": 10, "calories": 30,
+    "description": "坐在稳固的椅子上，以缓慢呼吸串联肩颈与胸椎活动。",
+    "exercises": [
+      {"name": "坐姿呼吸", "duration": 120},
+      {"name": "肩部缓慢绕环", "duration": 120},
+      {"name": "坐姿猫牛式", "duration": 120},
+      {"name": "坐姿侧弯（左右交替）", "duration": 120},
+      {"name": "坐姿扭转与回正", "duration": 120}
+    ]
+  },
+  {
+    "name": "髋部舒展流动", "cover": "/training/hip-mobility.webp", "type": "yoga", "difficulty": "初级", "duration": 15, "calories": 55,
+    "description": "交替练习两侧低弓步，随后在垫上完成髋部舒展。",
+    "exercises": [
+      {"name": "仰卧屈膝摆动", "duration": 180},
+      {"name": "低弓步流动（两侧交替）", "duration": 240},
+      {"name": "坐姿九十度转髋", "duration": 180},
+      {"name": "仰卧四字伸展（两侧交替）", "duration": 180},
+      {"name": "仰卧呼吸", "duration": 120}
+    ]
+  },
+  {
+    "name": "站姿平衡瑜伽", "cover": "/training/balance.webp", "type": "yoga", "difficulty": "中级", "duration": 18, "calories": 70,
+    "description": "从山式开始逐步缩小支撑面，两侧轮流练习，身旁可留一面墙。",
+    "exercises": [
+      {"name": "山式与重心转移", "duration": 180},
+      {"name": "树式与回正（两侧交替）", "duration": 300},
+      {"name": "战士二式流动（两侧交替）", "duration": 300},
+      {"name": "扶墙战士三式（两侧交替）", "duration": 180},
+      {"name": "站姿呼吸", "duration": 120}
+    ]
+  },
+  {
+    "name": "睡前垫上舒缓", "cover": "/training/mat-stretch.webp", "type": "yoga", "difficulty": "初级", "duration": 12, "calories": 35,
+    "description": "整套在垫上完成，用侧伸展和仰卧扭转逐渐放慢呼吸。",
+    "exercises": [
+      {"name": "婴儿式与双侧侧伸展", "duration": 180},
+      {"name": "仰卧抱膝轻摇", "duration": 120},
+      {"name": "仰卧扭转（两侧交替）", "duration": 180},
+      {"name": "仰卧屈膝呼吸", "duration": 240}
+    ]
+  },
+  {
+    "name": "公园快走循环", "cover": "/training/park-walk.webp", "type": "cardio", "difficulty": "初级", "duration": 30, "calories": 125,
+    "description": "在平坦路线交替快走和自然步速，最后逐渐减速。",
+    "exercises": [
+      {"name": "自然步速热身", "duration": 300},
+      {"name": "快走（间歇慢走）", "sets": 4, "duration": 240, "rest": 60},
+      {"name": "轻松步行", "duration": 300}
+    ]
+  },
+  {
+    "name": "动感单车节奏骑", "cover": "/training/studio-cycle.webp", "type": "cardio", "difficulty": "中级", "duration": 30, "calories": 210,
+    "description": "以坐姿为主，在稳定踏频和轻阻力骑行之间切换。",
+    "exercises": [
+      {"name": "低阻力热身", "duration": 300},
+      {"name": "稳定踏频骑行（间歇轻松踩踏）", "sets": 4, "duration": 240, "rest": 60},
+      {"name": "轻阻力放松", "duration": 300}
+    ]
+  },
+  {
+    "name": "走跑交替入门", "cover": "/training/walk-run.webp", "type": "cardio", "difficulty": "初级", "duration": 24, "calories": 145,
+    "description": "从快走进入短距离慢跑，每次慢跑后通过步行恢复。",
+    "exercises": [
+      {"name": "步行热身", "duration": 240},
+      {"name": "轻松慢跑（间歇步行）", "sets": 8, "duration": 60, "rest": 60},
+      {"name": "步行放松", "duration": 240}
+    ]
+  },
+  {
+    "name": "室内有氧踏步", "cover": "/training/indoor-cardio.webp", "type": "cardio", "difficulty": "初级", "duration": 15, "calories": 75,
+    "description": "在一块瑜伽垫的空间内，用摆臂和侧向步伐保持连续移动。",
+    "exercises": [
+      {"name": "原地慢踏步", "duration": 180},
+      {"name": "摆臂踏步", "duration": 240},
+      {"name": "侧向并步", "duration": 240},
+      {"name": "原地提膝踏步", "duration": 120},
+      {"name": "慢步放松", "duration": 120}
+    ]
+  }
+]

@@ -1,6 +1,9 @@
 package com.fitnessup.entity;
 
 import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -45,6 +48,18 @@ public class TrainingPlan {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
+    @Column(columnDefinition = "TEXT")
+    private String description;
+
+    @Transient
+    private String desc;
+
+    @Transient
+    private String level;
+
+    @Column(length = 255)
+    private String cover;
+
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
@@ -55,6 +70,13 @@ public class TrainingPlan {
     protected void onUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
+
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private boolean catalogItem;
+
+    @JsonIgnore
+    public boolean isCatalogItem() { return catalogItem; }
+    public void setCatalogItem(boolean catalogItem) { this.catalogItem = catalogItem; }
 
     public TrainingPlan() {}
 
@@ -71,8 +93,30 @@ public class TrainingPlan {
     public void setDuration(Integer duration) { this.duration = duration; }
     public Integer getCalories() { return calories; }
     public void setCalories(Integer calories) { this.calories = calories; }
-    public String getExercises() { return exercises; }
-    public void setExercises(String exercises) { this.exercises = exercises; }
+    @JsonProperty("exercises")
+    public Object getExercises() {
+        if (exercises == null || exercises.isBlank()) return java.util.List.of();
+        try {
+            return new ObjectMapper().readTree(exercises);
+        } catch (Exception ignored) {
+            return exercises;
+        }
+    }
+    public void setExercises(Object exercises) {
+        if (exercises == null) {
+            this.exercises = null;
+            return;
+        }
+        if (exercises instanceof String value) {
+            this.exercises = value;
+            return;
+        }
+        try {
+            this.exercises = new ObjectMapper().writeValueAsString(exercises);
+        } catch (Exception ignored) {
+            this.exercises = exercises.toString();
+        }
+    }
     public String getDifficulty() { return difficulty; }
     public void setDifficulty(String difficulty) { this.difficulty = difficulty; }
     public String getStatus() { return status; }
@@ -83,4 +127,12 @@ public class TrainingPlan {
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
     public LocalDateTime getUpdatedAt() { return updatedAt; }
     public void setUpdatedAt(LocalDateTime updatedAt) { this.updatedAt = updatedAt; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
+    public String getDesc() { return desc != null ? desc : (description == null ? "" : description); }
+    public void setDesc(String desc) { this.desc = desc; }
+    public String getLevel() { return level != null ? level : difficulty; }
+    public void setLevel(String level) { this.level = level; }
+    public String getCover() { return cover; }
+    public void setCover(String cover) { this.cover = cover; }
 }

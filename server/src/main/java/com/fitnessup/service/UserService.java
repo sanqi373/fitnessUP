@@ -31,6 +31,10 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public void setCalorieGoal(Long id, Long goal, boolean onlyIfUnset) {
+        userRepository.setCalorieGoal(id, goal, onlyIfUnset);
+    }
+
     public User updateUser(User user) {
         return userRepository.save(user);
     }

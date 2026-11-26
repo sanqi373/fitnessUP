@@ -8,14 +8,6 @@ export function getTrainPlanDetail(id) {
   return request.get(`/train/plans/${id}`)
 }
 
-export function startTrain(data) {
-  return request.post('/train/start', data)
-}
-
-export function finishTrain(data) {
-  return request.post('/train/finish', data)
-}
-
-export function getTrainHistory() {
-  return request.get('/train/history')
+export function changeWorkoutTimer(planId, sessionId, action) {
+  return request.post(`/train/plans/${planId}/timer`, { sessionId, action })
 }
